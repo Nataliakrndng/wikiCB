@@ -1280,48 +1280,6 @@ ul.dropdown-menu li {
   display: block;
 }
 
-/*=================================================================
-  Pricing section
-==================================================================*/
-.pricing-table .pricing-item {
-  padding: 40px 20px;
-  background: #fff;
-  box-shadow: 0 8px 15px 0 rgba(5, 57, 106, 0.06);
-}
-.pricing-table .pricing-item a.btn-main, .pricing-table .pricing-item a.btn-transparent, .pricing-table .pricing-item a.btn-small {
-  text-transform: uppercase;
-  margin-top: 20px;
-}
-.pricing-table .pricing-item li {
-  font-weight: 400;
-  padding: 6px 0;
-  color: #666;
-}
-.pricing-table .pricing-item li i {
-  margin-right: 6px;
-  color: #655E7A;
-}
-.pricing-table .price-title {
-  padding: 30px 0 20px;
-}
-.pricing-table .price-title > h3 {
-  font-weight: 700;
-  margin: 0 0 5px;
-  font-size: 15px;
-  text-transform: uppercase;
-}
-.pricing-table .price-title > p {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  margin-top: 5px;
-}
-.pricing-table .price-title .value {
-  color: #655E7A;
-  font-size: 50px;
-  padding: 10px 0;
-}
-
 .product-item {
   margin-bottom: 30px;
 }
@@ -2194,26 +2152,40 @@ ul.dropdown-menu li {
   color: #655E7A;
 }
 .post .post-meta {
-  font-size: 13px;
-  margin-top: 10px;
-  text-transform: uppercase;
+    font-size: 13px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.post .post-meta ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 .post .post-meta ul li {
-  display: inline-block;
-  color: #909090;
-  margin-right: 20px;
-  font-size: 12px;
-  letter-spacing: 0.5px;
+    display: inline-block;
+    color: #909090;
+    margin-right: 20px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
 }
+
+.post .post-meta ul li:first-child {
+    margin-left: 0;
+}
+
 .post .post-meta ul li a {
-  color: #909090;
+    color: #909090;
 }
-.post .post-meta ul li a:hover {
-  color: #655E7A;
-}
-.post .post-meta .post-author {
-  color: #000;
-}
+
+  .post .post-meta ul li a:hover {
+    color: #655E7A;
+  }
+
+  .post .post-meta .post-author {
+    color: #000;
+  }
+
 .post .post-content {
   margin-top: 20px;
 }

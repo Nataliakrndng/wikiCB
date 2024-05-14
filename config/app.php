@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'CB-Pedia'),
 
     /*
     |--------------------------------------------------------------------------
@@ -160,6 +160,9 @@ return [
          * Package Service Providers...
          */
 
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -183,6 +186,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Image' => Intervention\Facades\Image::class,
     ])->toArray(),
 
 ];
