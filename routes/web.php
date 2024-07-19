@@ -4,8 +4,11 @@ use App\Http\Controllers\Back\DashController;
 use App\Http\Controllers\Back\CategoryController;
 use App\Http\Controllers\Back\ArticleController;
 use App\Http\Controllers\Back\UserController;
+use App\Http\Controllers\Back\EditorController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ArticlesController;
+use App\Http\Controllers\Front\CategoriesController;
+use App\Http\Controllers\Front\PagesController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -13,8 +16,13 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [HomeController::class, 'index']);
+Route::post('/articles/search', [ArticlesController::class, 'index'])->name('search');
 
 Route::get('/articles', [ArticlesController::class,'index']);
+
+Route::get('/category/{slug}/', [CategoriesController::class, 'index']);
+Route::get('/articles/{slug}', [PagesController::class, 'show']);
+
 
 
 Route::middleware('auth')->group(function () {
@@ -22,16 +30,13 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/categories', CategoryController::class)->only([
         'index', 'store', 'update', 'destroy'
-    ])->middleware('UserAccess:1');
+    ]);
 
     Route::resource('/article', ArticleController::class);
 
     Route::resource('/users', UserController::class);
-
-    Route::group(['prefix' => 'laravel-filemanager'], function () {
-        \UniSharp\LaravelFilemanager\Lfm::routes();
-    });
 });
+
 
 
 Auth::routes();

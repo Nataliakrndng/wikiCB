@@ -2,8 +2,9 @@
 
 @section('title', 'List Category')
 
-@push('datatable')
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.4/css/dataTables.tailwindcss.css">
+@push('cssDataTables')
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/datatables.css')}}">
 @endpush
 
 @section('content')
@@ -54,10 +55,13 @@
                 </tbody>
             </table>
         </div>
-      <!-- Modal -->
+
         @include('back.category.createmodal')
         @include('back.category.updatemodal')
         @include('back.category.deletemodal')
+
+        <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+
 
     </main>
 @endsection

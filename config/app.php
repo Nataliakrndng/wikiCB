@@ -161,7 +161,6 @@ return [
          */
 
         Yajra\DataTables\DataTablesServiceProvider::class,
-        UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
 
         /*
          * Application Service Providers...

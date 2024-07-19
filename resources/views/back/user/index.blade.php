@@ -3,7 +3,7 @@
 @section('title', 'List Users')
 
 @push('datatable')
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.4/css/dataTables.tailwindcss.css">
+    <link rel="stylesheet" href="{{asset('css/datatables.css')}}">
 @endpush
 
 @section('content')
@@ -77,5 +77,7 @@
       @include('back.user.createmodal')
       @include('back.user.deletemodal')
       @include('back.user.updatemodal')
+
+      <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
     </main>
 @endsection

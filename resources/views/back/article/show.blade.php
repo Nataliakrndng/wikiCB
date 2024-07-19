@@ -31,7 +31,7 @@
                         <label class="block uppercase tracking-wide text-gray-200 text-md font-bold mb-2" for="desc">
                           Description
                         </label>
-                        <textarea name="desc" id="editor">{{ $article->desc }}</textarea>
+                        <div id="editor">{{ $article->desc }}</div>
                     </div>
                     <div class="w-full px-3 mb-6 mt-3 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-200 text-md font-bold mb-2" for="img">
@@ -59,25 +59,21 @@
             </form>
         </div>
     </main>
-
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            ckfinder: {
+                uploadUrl: '{{ url("upload", ["_token" => csrf_token()]) }}'
+            }
+        })
+        .then(editor => {
+            editor.isReadOnly = true;
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 @endsection
 
-@push('jsDataTabless')
-    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.3/classic/ckeditor.js"></script>
-    <script>
-        var options ={
-            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-            filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-            filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-            filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
-            clipboard_handleImages: false
-        }
-    </script>
-
-    <script>
-        CKEDITOR.replace('editor', {
-        ...options,
-        readOnly: true // Set readOnly to true
-    });
-    </script>
-@endpush

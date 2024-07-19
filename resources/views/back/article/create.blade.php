@@ -113,34 +113,24 @@
         </div>
     </main>
 
+    <script src={{ asset('ckeditor/ckeditor.js') }}></script>>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                ckfinder: {
+                    uploadUrl: '{{ url("upload", ["_token" => csrf_token()]) }}'
+                }
+            })
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
 @endsection
 
 @push('jsDataTabless')
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-
-    <script>
-        var options ={
-            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-            filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-            filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-            filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
-            clipboard_handleImages: false
-        }
-    </script>
-
-    <script>
-        CKEDITOR.replace( 'editor', options );
-    </script>
-
-    <script>
-        function previewImage(event) {
-            var input = event.target;
-            var reader = new FileReader();
-            reader.onload = function () {
-                var imgPreview = document.getElementById('img-preview');
-                imgPreview.src = reader.result;
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    </script>
+    <script src={{ asset('js/jquery.js') }}></script>
 @endpush
